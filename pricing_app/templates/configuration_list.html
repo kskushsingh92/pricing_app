@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pricing Configurations</title>
+</head>
+<body>
+    <h1>Pricing Configurations</h1>
+
+    <a href="{% url 'add_pricing_configuration' %}">Add Pricing Configuration</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Day of Week</th>
+                <th>Distance Base Price</th>
+                <th>Distance Additional Price</th>
+                <th>Time Multiplier Factor</th>
+                <th>Waiting Charges</th>
+                <th>Created By</th>
+                <th>Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for configuration in configurations %}
+                <tr>
+                    <td>{{ configuration.day_of_week }}</td>
+                    <td>{{ configuration.distance_base_price }}</td>
+                    <td>{{ configuration.distance_additional_price }}</td>
+                    <td>{{ configuration.time_multiplier_factor }}</td>
+                    <td>{{ configuration.waiting_charges }}</td>
+                    <td>{{ configuration.created_by.username }}</td>
+                    <td>{{ configuration.created_at }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="7">No pricing configurations available.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

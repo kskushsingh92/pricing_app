@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Pricing Configuration</title>
+</head>
+<body>
+    <h1>Add Pricing Configuration</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Configuration</button>
+    </form>
+
+    <a href="{% url 'pricing_configuration_list' %}">Back to Configuration List</a>
+</body>
+</html>
